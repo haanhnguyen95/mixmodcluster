@@ -1,0 +1,39 @@
+---
+title: "Introduce mixmodcluster package"
+author: "Thi Ha Anh NGUYEN, Pape DIOUF"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduce mixmodcluster package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The mixmodcluster package contains 2 types of function:
+
+- The first one is function clustermixmod(). This function is used to fit mixture models of a given quantitative,qualitative or heterogeneous data. For quantitative data (which the parameter of function: datatype = "continuous"), we use Gaussian mixture model(GMM). For qualitative data(which the parameter of function: datatype = "categorical"), we use Latent class model(LCM). For heterogeneous data, we use mixture model of Gaussian and Latent class model.
+
+- The second consists 3 plot functions which correspond to 3 types of model. For quantitative data (GMM), we use function plot_continuous(). For qualitative data(LCM), we use function plot_categorical(). For heterogeneous data, we use function plot_mix().
+
+## Example
+
+```{r, fig.show='hold'}
+library(mixmodcluster)
+library(bayess)
+library(mvtnorm)
+
+# Data quantitative
+x1 = as.matrix(iris[, 1:4])
+# Fit model 
+model1 = clustermixmod(x1, 2, itermax = 30, init = "kmeans", datatype = "continuous")
+# Plot the result
+plot_continuous(x1, model1)
+```
+
