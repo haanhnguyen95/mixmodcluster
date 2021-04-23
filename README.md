@@ -1,5 +1,5 @@
 # mixmodcluster
-*mixmodcluster* is a package for fitting a mixture model clustering of multivariate gaussian 
+*mixmodcluster* is a R package for fitting a mixture model clustering of multivariate gaussian 
 or multinomial components or the both to a given dataset.
 
 **Author :** Ha Anh NGUYEN
